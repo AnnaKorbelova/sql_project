@@ -1,7 +1,7 @@
 # SQL_project
-SQL projekt kurz ENGETO - PRŮVODNÍ LISTINA
+PRŮVODNÍ LISTINA
 POPIS PROJEKTU
-V první části listiny je zadání projektu spolu s popisem tvorby tabulek. Následuje popis vypracování výstupů pro jednotlivé výzkumné otázky z vytvořených tabulek. Další částí jsou slovní odpovědi na výzkumné otázky a závěrem problematika související s chybějícími daty.
+V první části listiny je zadání projektu, spolu s popisem tvorby tabulek. Následuje popis vypracování výstupů pro jednotlivé výzkumné otázky z vytvořených tabulek. Další částí jsou slovní odpovědi na výzkumné otázky a závěrem problematika související s chybějícími daty.
 
 Zadání:
 Úvod do projektu
@@ -51,10 +51,16 @@ Na svém GitHub účtu vytvořte repozitář (může být soukromý), kam ulož�
 
 Neupravujte data v primárních tabulkách! Pokud bude potřeba transformovat hodnoty, dělejte tak až v tabulkách nebo pohledech, které si nově vytváříte.
 
-Tvorba tabulek
+Tvorba tabulek:
+Pro tvorbu robustních datových podkladů byly v projektu použity veškeré primární tabulky a číselníky. První spojení je mezi tabulkou czechia_price a czechia_payroll na základe fukce YEAR. Další spojení je s číselníkem czechia_price_category pro získání názvů kategorie potravin. Dále pokračujeme s číselníky czechia_payroll_calculation, czechia_payroll_industry_branch, czechia_payroll_unit, czechia_payroll_value_type. Všechny spojujeme podle kódu, který je dle ER diagramu spojem pro všechny číselníky i tabulky. Z číselníku czechia_payroll_value_type pomocí WHERE podmíníme výběr pouze kódu 5958 tedy průměrné hrubé mzdy na zaměstnance. Seskupíme dle let a týdnů měření, názvů odvětví a druhů potravin. Seřadíme opět dle let a tydnů. Selektujeme všechny sloupečky, které jsou žádoucí pro odpovědi na výzkumné otázky: měřené týdny (funkce WEEKOFYEAR), měřené roky, průměrné mzdy, kód a název odvětví, druhy potravin, průměrné ceny potravin a jednotku měření. Vytvořím pohled s názvem v_anna_korbelova_project_sql_primary_final, dle zadání. Číselníky czechia_region ani czechia_district neobsahují potřebná data, takže je nepoužiji.  
 
-Vypracování výzkumných otázek
+Vypracování výzkumných otázek a odpovědi
+1. Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
+   Pro tuto otázku si vyselektuji roky, průměrné mzdy a názvy odvětví, které zároveň podmíním pomocí WHERE, že nesmí mít NULL hodnoty. Seskupím a seřadím dle let a názvu odvětví a vytvořím pohled       
+v_anna_korbelova_sql_answer_1.
+Odpověď: Pohled mi ukáže, že mzdy v průběhu let všechny rostou. Klesaly pouze v letech 2012-2013 v odvětvích: Admin. a podpůrné činnosti, Doprava a skladování, Informační a komunikační činnosti, Peněžnictví a pojišťovnictví, Těžba a dobývání, Veřejná správa a obrana, Vzdělávání, Zásob. vododou, Zdravotnictví. Dále v letech 2008-2009 v odvětvích: Činnosti v oblasti nemovitostí, Ostatní činnosti, Ubyt. stravování a pohostinství, Velkoobchod a maloobchod, Zeměděltví, lesnictví, rybářství. Pokles zaznamenaly také odvětví Profesní, vědecké a tech. čin. a Stavebnictví a to v letech 2009-2010 a Kulturní, zábavní a rekreační čin. a opět veřejná správa v letech 2010-2011.
 
-Odpovědi na výzkumné tázky
+2. Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?
+   Tentokrát jsem si nevybrala pohled, ale Common table expression
 
 Problémy s chybějícími daty 
