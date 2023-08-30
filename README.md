@@ -58,9 +58,16 @@ Vypracování výzkumných otázek a odpovědi
 1. Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
    Pro tuto otázku si vyselektuji roky, průměrné mzdy a názvy odvětví, které zároveň podmíním pomocí WHERE, že nesmí mít NULL hodnoty. Seskupím a seřadím dle let a názvu odvětví a vytvořím pohled       
 v_anna_korbelova_sql_answer_1.
-Odpověď: Pohled mi ukáže, že mzdy v průběhu let všechny rostou. Klesaly pouze v letech 2012-2013 v odvětvích: Admin. a podpůrné činnosti, Doprava a skladování, Informační a komunikační činnosti, Peněžnictví a pojišťovnictví, Těžba a dobývání, Veřejná správa a obrana, Vzdělávání, Zásob. vododou, Zdravotnictví. Dále v letech 2008-2009 v odvětvích: Činnosti v oblasti nemovitostí, Ostatní činnosti, Ubyt. stravování a pohostinství, Velkoobchod a maloobchod, Zeměděltví, lesnictví, rybářství. Pokles zaznamenaly také odvětví Profesní, vědecké a tech. čin. a Stavebnictví a to v letech 2009-2010 a Kulturní, zábavní a rekreační čin. a opět veřejná správa v letech 2010-2011.
+
+Odpověď: Pohled mi ukáže, že mzdy v průběhu let všechny rostou. Klesaly pouze v letech 2012-2013 v odvětvích: Admin. a podpůrné činnosti, Doprava a skladování, Informační a komunikační činnosti, Peněžnictví a pojišťovnictví, Těžba a dobývání, Veřejná správa a obrana, Vzdělávání, Zásob. vodou, Zdravotnictví. Dále v letech 2008-2009 v odvětvích: Činnosti v oblasti nemovitostí, Ostatní činnosti, Ubyt. stravování a pohostinství, Velkoobchod a maloobchod, Zeměděltví, lesnictví, rybářství. Pokles zaznamenaly také odvětví Profesní, vědecké a tech. čin. a Stavebnictví a to v letech 2009-2010 a Kulturní, zábavní a rekreační čin. a opět veřejná správa v letech 2010-2011.
 
 2. Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?
-   Tentokrát jsem si nevybrala pohled, ale Common table expression
+   Tentokrát jsem si nevybrala pohled, ale Common Table Expression, protože potřebuji zobrazit celkem 4 informace. Za prvé cenu kg/l chleba nebo mléka a průměrnou mzdu za první a poslední srovnatelné období, kde podílem získám odpovědi. V SELECTU používám pro první srovnatelné období funci MIN a pro poslední funkci MAX ve sloupečku let. V podmínce WHERE si vyhledám konkrétní druh potraviny a to buď Chléb konzumní kmínový a nebo Mléko polotučné pasterované. Seskupím a seřadím pomocí týdnů a let. Zaokrouhlím pomocí funce ROUND ihned ve vnořeném SELECTu na dvě desetinná místa. Pro vyfiltrování pouze jednoho řádku s odpovědí jsem použila opět podmínku WHERE a to s číslem 1 pro první týden v prvním roce měření a číslem 50 pro poslední uvedený týden měření dle dostupných dat.
+
+Odpověď:  Za první srovnatelné období, kterým je 1. týden roku 2006 si za průměrnou mzdu 18.270,- koupím 1.294,84 kg chleba nebo 1.292,99l mléka. Za poslední srovnatelné období, kterým je 50. týden v roce 2018 si za stejnou mzdu koupím 1.074,07kg chleba nebo 1.283,91l mléka.
+   
+3. Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?
+   Vytvořím si pohled s názvem v_anna_korbelova_sql_answer_3, vyselektuji kategorii potravin, roky a pomocí funkce AVG zjistím průměrné ceny a seskupením a seřazením i jejich postupný vývoj. 
+       
 
 Problémy s chybějícími daty 
