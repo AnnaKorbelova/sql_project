@@ -12,7 +12,7 @@ WITH first_measured_year_bread AS (
 	WHERE food_category = 'Chléb konzumní kmínový'
 	GROUP BY measured_week 
 	ORDER BY measured_week, 
-			 first_measured_time
+		 first_measured_time
 )
 		SELECT 
 			ROUND(average_wages/food_average_price, 2) AS first_price
@@ -32,7 +32,7 @@ WITH last_measured_year_bread AS (
 	WHERE food_category = 'Chléb konzumní kmínový'
 	GROUP BY measured_week 
 	ORDER BY last_measured_time DESC, 
-			 measured_week DESC
+		 measured_week DESC
 )
 		SELECT 
 			ROUND(average_wages/food_average_price, 2) AS last_price
@@ -53,12 +53,13 @@ WITH first_measured_year_milk AS (
 	WHERE food_category = 'Mléko polotučné pasterované'
 	GROUP BY measured_week 
 	ORDER BY measured_week, 
-			 first_measured_time
+		 first_measured_time
 )
 		SELECT 
 			ROUND(average_wages/food_average_price, 2) AS first_price
 		FROM first_measured_year_milk
 		WHERE measured_week = 1;
+
 
 WITH last_measured_year_milk AS (
 	SELECT 
@@ -72,7 +73,7 @@ WITH last_measured_year_milk AS (
 	WHERE food_category = 'Mléko polotučné pasterované'
 	GROUP BY measured_week 
 	ORDER BY last_measured_time DESC, 
-			 measured_week DESC
+		 measured_week DESC
 )
 		SELECT 
 			ROUND(average_wages/food_average_price, 2) AS last_price
