@@ -3,8 +3,8 @@ CREATE VIEW v_anna_korbelova_project_SQL_primary_final AS
 	SELECT 
 		WEEKOFYEAR(cp.date_from) AS measured_week,
 		cpay.payroll_year AS payroll_year,
-    	cpay.value AS average_wages,
-    	cpib.code AS industry_code,
+    		cpay.value AS average_wages,
+    		cpib.code AS industry_code,
 		cpib.name AS industry_name,
 		cpcat.name AS food_category,
 		cp.value AS food_average_price,
