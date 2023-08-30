@@ -1,7 +1,7 @@
 # SQL_project
 PRŮVODNÍ LISTINA
-POPIS PROJEKTU
-V první části listiny je zadání projektu, spolu s popisem tvorby tabulek. Následuje popis vypracování výstupů pro jednotlivé výzkumné otázky z vytvořených tabulek. Další částí jsou slovní odpovědi na výzkumné otázky a závěrem problematika související s chybějícími daty.
+
+V první části listiny je zadání projektu spolu s popisem tvorby tabulek. Následuje popis vypracování výstupů, pro jednotlivé výzkumné otázky, z vytvořených tabulek, kde najdete i slovní odpovědi na výzkumné otázky. Závěrem je problematika související s chybějícími daty.
 
 Zadání:
 Úvod do projektu
