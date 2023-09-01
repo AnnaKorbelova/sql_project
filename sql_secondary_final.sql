@@ -1,12 +1,19 @@
-WITH population_2018 AS (
+CREATE OR REPLACE VIEW v_anna_korbelova_project_sql_secondary_final AS
+WITH Europe AS (
 SELECT 
-	*
-FROM countries c 
-JOIN economies e 
-ON c.population = e.population
+		country,
+		GDP,
+		gini,
+		population,
+		year
+FROM economies e 
+WHERE e.country LIKE '%euro%'
 )
 	SELECT 
-	country AS location,
-	population
-	FROM population_2018 
-	WHERE `year` = 2018;
+	* 	
+	FROM Europe
+	WHERE year >= '2006'  AND year <= '2018'
+	ORDER BY year;
+
+
+
