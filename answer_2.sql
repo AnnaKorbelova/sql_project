@@ -26,7 +26,8 @@ WITH first_measured_year_bread AS (
 			 average_wages,
 			 measured_week,
 			 first_measured_time
-		ORDER BY first_measured_time;
+		ORDER BY first_measured_time
+		LIMIT 1;
 
 
 WITH last_measured_year_bread AS (
@@ -55,7 +56,8 @@ WITH last_measured_year_bread AS (
 			 average_wages, 
 			 measured_week,
 			 last_measured_time
-		ORDER BY last_measured_time DESC;
+		ORDER BY last_measured_time DESC
+		LIMIT 1;
 	
 -- MILK
 
@@ -85,7 +87,8 @@ WITH first_measured_year_milk AS (
 			 average_wages,
 			 measured_week,
 			 first_measured_time
-		ORDER BY first_measured_time;
+		ORDER BY first_measured_time
+		LIMIT 1;
 
 
 WITH last_measured_year_milk AS (
@@ -114,5 +117,6 @@ WITH last_measured_year_milk AS (
 			 average_wages, 
 			 measured_week,
 			 last_measured_time
-		ORDER BY last_measured_time DESC;
+		ORDER BY last_measured_time DESC
+		LIMIT 1;
 	
