@@ -7,7 +7,7 @@ WITH Europe AS (
 		population,
 		year
 	FROM economies e 
-	WHERE e.country LIKE '%euro%'
+	WHERE e.country LIKE '%euro%' -- Původně zde měl být filtr 'Europe', ale zahlédla jsem i oblast 'Euro Area', tak jsem filtr upravila, aby zahrnul všechna evropská data. 
 	)
 		SELECT 
 		* 	
