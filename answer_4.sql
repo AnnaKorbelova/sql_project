@@ -1,23 +1,21 @@
-WITH answer_4_average_wages AS (
-    SELECT *
-    FROM v_anna_korbelova_project_sql_primary_final
-    WHERE average_wages  > 10
-)
-		SELECT
-			industry_name, 
-    		ROUND (AVG(payroll_year), 0) AS year_average_wages
-		FROM answer_4_average_wages
-		WHERE industry_name IS NOT NULL;
+CREATE OR REPLACE VIEW v_answer_4v AS
+SELECT  
+	va.payroll_year,
+	va2.payroll_year + 1 AS year_prev,
+	ROUND((va.food_average_price - va2.food_average_price) / va2.food_average_price * 100, 2) AS food_average_price_growth,
+	ROUND((va.average_wages  - va2.average_wages) / va2.average_wages * 100, 2) AS average_wages_growth
+FROM v_answer_3V va
+JOIN v_answer_3V va2  
+	ON va.food_category = va2.food_category  
+	AND va.payroll_year = va2.payroll_year + 1 
+GROUP BY va.payroll_year 
+ORDER BY food_average_price_growth, average_wages_growth;  
 
-WITH answer_4_food_average_price AS (
-    SELECT *
-    FROM v_anna_korbelova_project_sql_primary_final
-    WHERE food_average_price  > 10
-)
-		SELECT
-			food_category, 
-    		ROUND (AVG(payroll_year), 0) AS year_food_average_price
-		FROM answer_4_food_average_price;
+
+	SELECT 
+		*
+	FROM v_answer_4v vav 
+	WHERE food_average_price_growth > 10;
 		 
 	
 	
