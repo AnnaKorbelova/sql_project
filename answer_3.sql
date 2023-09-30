@@ -6,9 +6,9 @@ SELECT DISTINCT
 		payroll_year
 FROM v_anna_korbelova_project_sql_primary_final vakpspf 
 GROUP BY 	payroll_year,
-			average_wages,
-			food_category,
-			food_average_price;
+		average_wages,
+		food_category,
+		food_average_price;
 
 CREATE OR REPLACE VIEW v_anna_korbelova_sql_answer_3r AS
 SELECT 
@@ -37,8 +37,8 @@ FROM v_anna_korbelova_sql_answer_3r
 GROUP BY food_category;
 
 SELECT 
-		food_category, 
-		food_average_price_growth,
+	food_category, 
+	food_average_price_growth,
 	CASE 
 		WHEN food_average_price_growth < 10 THEN 'price_slow_growth'
 		WHEN food_average_price_growth < 40 THEN 'price_fast_growth'
